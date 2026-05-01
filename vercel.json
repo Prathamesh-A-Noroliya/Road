@@ -1,12 +1,21 @@
 {
+  "builds": [
+    {
+      "src": "artifacts/roadintel/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
   "routes": [
     {
       "src": "/assets/(.*)",
-      "dest": "/assets/$1"
+      "dest": "/artifacts/roadintel/dist/assets/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/artifacts/roadintel/dist/index.html"
     }
   ]
 }
